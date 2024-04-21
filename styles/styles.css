@@ -10,6 +10,9 @@ body {
     padding: 0 20px;
 }
 
+h1 { text-align: center;
+color: #464e53;}
+
 input, button {
     font-family: "raleway";
     font-size: 1.2em;
@@ -110,12 +113,12 @@ input, button:hover, button:focus {
 
 .c-controls {
     margin-top: 16px;
-    padding: 0 20px;
     display: flex;
     justify-content: space-between;
+    grid-gap: 1em;
 }
 .c-controls .edit {
     display: flex;
-    grid-gap: 20px;
+    grid-gap: 1em;
 }
 

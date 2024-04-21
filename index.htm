@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bootstrap Website</title>
+    <title>Woodthorpe ADT</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -11,27 +11,22 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-
     <div class="site-container">
     <h1>Woodthorpe ADT</h1>
-
     <div class="c-pass-image-container">
         <div class="c-upload-form">
             <form>
                 <input type="file" name="pass-image" class="file-upload" />
             </form>
         </div>
-
         <div class="c-preview-container-instagram --output-container" id="PreviewContainerInstagram">
             <img class="image --instagram-image" src="" alt="" />
         </div>
-
         <div class="c-export-container-instagram">
             <div class="c-pass-image-output-container --output-container" id="ExportContainerInstagram">
                 <img class="image --instagram-image" src="" alt="" />
             </div>
         </div>
-
         <div class="c-controls">
             <div class="edit">
                 <button id="BtnZoomIn">Zoom in</button>
@@ -42,7 +37,6 @@
             </button>
         </div>
     </div>
-
 </div>
 
 <script id="TemplateFrame" type="template">
@@ -51,15 +45,6 @@
     </div>
     </script>
 
-<script id="TemplateFrame-NoImage" type="template">
-<div class="c-frame">
-    <div class="copy">I passed my test with</div>
-    <div class="logo">
-        <span class="name">Woodthorpe</span>
-        <span class="sub"><span>Automatic</span> Driving Tuition</span>
-    </div>
-</div>
-</script>
 <script>
     const templateFrameHtml = document.getElementById('TemplateFrame').innerHTML;
     const $passImageInput = document.querySelector('input[name="pass-image"]');
@@ -91,8 +76,6 @@
         if (file) {
             reader.readAsDataURL(file);
         }
-
-
     });
 
     /**
@@ -139,7 +122,6 @@
             link.click();
         });
     });
-
     </script>
 </body>
 </html>
