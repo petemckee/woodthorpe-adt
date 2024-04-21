@@ -1,0 +1,121 @@
+body {
+    font-family: "raleway";
+    font-size: 1em;
+    background-color: #fcfbfb;
+}
+
+.site-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+input, button {
+    font-family: "raleway";
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 6px 14px;
+    background: #d8e0e2;
+    border: 1px solid #bcb2bf;
+    color: #303030;
+    border-radius: 4px;
+    border: 0;
+}
+
+input, button:hover, button:focus {
+    background: #bcb2bf;
+}
+
+.c-upload-form {
+    width: 100%;
+}
+.file-upload
+{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    background: #f1f1f1;
+    cursor: pointer;
+}
+
+.--output-container {
+    background-image: linear-gradient(45deg, #e4e4e4 25%, transparent 25%), linear-gradient(-45deg, #e4e4e4 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #e4e4e4 75%), linear-gradient(-45deg, transparent 75%, #e4e4e4 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    max-width: 1080px;
+    overflow: hidden;
+    position: relative;
+}
+
+.c-pass-image-output-container
+{
+    height: 1080px;
+    width: 1080px;
+    position: relative;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1);
+}
+
+.c-frame {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+    .c-frame img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+/* Hide the actual export container as it's too big to display on a mobile screen */
+.c-export-container-instagram {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+/*
+.c-export-container-instagram .c-frame {
+    height: 200px;
+    padding: 0 64px;
+}
+.c-export-container-instagram .c-frame .logo .name 
+{
+    font-size: 68px;
+}
+.c-export-container-instagram .c-frame .logo .sub 
+{
+    font-size: 28px;
+}
+.c-export-container-instagram .c-frame .logo .name 
+{
+    font-size: 68px;
+}
+*/
+
+.c-preview-container-instagram {
+    max-width: 1080px;
+    aspect-ratio: 1/1;
+    position: relative;
+}
+
+.c-controls {
+    margin-top: 16px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.c-controls .edit {
+    display: flex;
+    grid-gap: 20px;
+}
+
