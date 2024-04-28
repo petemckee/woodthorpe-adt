@@ -29,6 +29,40 @@ input, button:hover, button:focus {
     background: #bcb2bf;
 }
 
+
+
+
+
+.c-options {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 24px;
+    box-sizing: border-box;
+}
+    .c-options button {
+        margin: 24px;
+        width: 100%;
+        max-width: 600px;
+        padding: 88px;
+    }
+
+.c-option-selected {
+    margin-bottom: 24px
+}
+
+
+
+
+
+
+
 .c-upload-form {
     width: 100%;
 }
@@ -81,9 +115,10 @@ input, button:hover, button:focus {
     }
 
 /* Hide the actual export container as it's too big to display on a mobile screen */
+.export-hiding-wrap ,
 .c-export-container-instagram {
-    width: 1px;
-    height: 1px;
+    width: 0;
+    height: 0;
     overflow: hidden;
 }
 /*
@@ -104,7 +139,6 @@ input, button:hover, button:focus {
     font-size: 68px;
 }
 */
-
 .c-preview-container-instagram {
     max-width: 1080px;
     aspect-ratio: 1/1;
@@ -122,3 +156,95 @@ input, button:hover, button:focus {
     grid-gap: 1em;
 }
 
+.--hidden {
+    display: none;
+}
+
+
+
+
+
+
+
+.c-testimonial-container {
+    max-width: 1080px;
+    aspect-ratio: 1/1;
+}
+
+    .--testimonial {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1080px;
+        height: 100%;
+        background: #A74E7C;
+        color: #fff;
+    }
+
+    .c-testimonial-container .preview {
+        position: relative;
+        max-width: 1080px;
+    }
+        .c-testimonial-container .copy-wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: clamp(13px, 3.6vw, 42px);
+            margin: auto 14%;
+            position: relative;
+        }
+
+        .c-testimonial-container .copy-wrap:before, 
+        .c-testimonial-container .copy-wrap:after {
+            position: absolute;
+            opacity: 0.3;
+            font-size: clamp(102px, 24vw, 300px);
+        }
+
+            /* TODO - use container query to sort positioning of quotes */
+            /* .c-testimonial-container .copy-wrap:before {
+                content: "“";
+                top: -2.5rem;
+                left: -2.5rem;
+            }
+            .c-testimonial-container .copy-wrap:after {
+                content: "”";
+                bottom: -2.5rem;
+                right: -2.5rem;
+                line-height: 0;
+            } */
+
+
+        .c-testimonial-container .logo-wrap {
+            display: flex;
+            justify-content: center;
+            /*height: 290px;*/
+            height: 18vw;
+            width: 18vw;
+            max-width: 220px;
+            max-height: 220px;
+            padding-bottom: 8%;
+        }
+            .c-testimonial-container .logo-wrap img {
+                /* 220px */
+                width: 100%;
+                max-width: 220px;
+                max-height: 220px;
+            }
+
+    .c-testimonial-container .output  {
+        width: 1080px;
+        height: 1080px;
+    }
+        .c-testimonial-container .output .copy-wrap {
+            font-size: 42px;
+            margin: auto 160px;
+        }
+        .c-testimonial-container .output .logo-wrap {
+            width: 220px;
+            height: 220px;
+            padding-bottom: 50px;
+        }
