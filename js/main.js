@@ -5,7 +5,6 @@ const $btnPass = document.getElementById('BtnPass');
 const $btnBack = document.getElementById('BtnBack');
 const $optionsContainer = document.querySelector('.c-options');
 const $optionSelectedContainer = document.querySelector('.c-option-selected');
-const $passImageContainer = document.querySelector('.c-pass-image-container');
 const $outputContainers = document.querySelectorAll('.--output-container');
 
 // -- Testimonial Export
@@ -18,23 +17,24 @@ const $testimonialExport = document.getElementById("TestimonialExport");
 // -- Pass Image Export
 const templateFrameHtml = document.getElementById('TemplateFrame').innerHTML;
 const $passImageInput = document.querySelector('input[name="pass-image"]');
-const $previewContainerPass = document.getElementById('PreviewContainerInstagram');
+const $passContainer = document.querySelector('.c-pass-container');
 const $ExportContainerPass = document.getElementById('ExportContainerInstagram');
 const $btnExportPass = document.getElementById('BtnPassImageExport');
 let passImages = [];
 
 /** Initial Setup */
 document.addEventListener('DOMContentLoaded', function() {
-    $previewContainerPass.querySelector('.image').insertAdjacentHTML('afterend', templateFrameHtml);
-    $ExportContainerPass.querySelector('.image').insertAdjacentHTML('afterend', templateFrameHtml);
-    passImages = document.querySelectorAll('.--instagram-image');
+    $passContainer.querySelectorAll('.image').forEach(function(image) {
+        image.insertAdjacentHTML('afterend', templateFrameHtml);
+    });
+    passImages = $passContainer.querySelectorAll('.image');
 });
 
 /** Toggle main nav and containers */
 $btnPass.addEventListener('click', function() {
     $optionsContainer.classList.add(hiddenClassName);
     $optionSelectedContainer.classList.remove(hiddenClassName);
-    $passImageContainer.classList.remove(hiddenClassName);
+    $passContainer.classList.remove(hiddenClassName);
 });
 $btnTestimonial.addEventListener('click', function() {
     $optionsContainer.classList.add(hiddenClassName);
@@ -44,7 +44,7 @@ $btnTestimonial.addEventListener('click', function() {
 $btnBack.addEventListener('click', function() {
     $optionsContainer.classList.remove(hiddenClassName);
     $optionSelectedContainer.classList.add(hiddenClassName);
-    $passImageContainer.classList.add(hiddenClassName);
+    $passContainer.classList.add(hiddenClassName);
     $testimonialContainer.classList.add(hiddenClassName);
 });
 
@@ -64,17 +64,14 @@ $btnTestimonialExport.addEventListener('click', function() {
 });
 
 
-
-/**
- * Handle file upload
- */
+/** Pass image - Handle file upload */
 $passImageInput.addEventListener('change', function() {
     const file = $passImageInput.files[0];
     const reader = new FileReader();
 
     reader.addEventListener('load', function() {
-        passImages.forEach(function(instagramImage) {
-            instagramImage.src = reader.result;
+        passImages.forEach(function(image) {
+            image.src = reader.result;
         });
 
     });
@@ -84,9 +81,7 @@ $passImageInput.addEventListener('change', function() {
     }
 });
 
-/**
- * Zoom in & zoom out
- */
+/** Pass image - Zoom in & zoom out */
 function zoomIn($element) {
     zoom($element, 'in');
 }
@@ -98,17 +93,14 @@ function zoom($element, direction) {
     const newScale = direction === 'in' ? currentScale + 0.05 : currentScale - 0.05;
     $element.style.transform = `scale(${newScale})`;
 }
-
-const $btnZoomIn = document.getElementById('BtnZoomIn');
-$btnZoomIn.addEventListener('click', function() {
-    passImages.forEach(function($instagramImage) {
-        zoomIn($instagramImage);
+document.getElementById('BtnZoomIn').addEventListener('click', function() {
+    passImages.forEach(function(image) {
+        zoomIn(image);
     });
 });
-const $btnZoomOut = document.getElementById('BtnZoomOut');
-$btnZoomOut.addEventListener('click', function() {
-    passImages.forEach(function($instagramImage) {
-        zoomOut($instagramImage);
+document.getElementById('BtnZoomOut').addEventListener('click', function() {
+    passImages.forEach(function(image) {
+        zoomOut(image);
     });
 });
 
@@ -121,7 +113,7 @@ $btnExportPass.addEventListener('click', function() {
     })
     .then(function (dataUrl) {
         var link = document.createElement('a');
-        link.download = `woodthorpe-adt-${Math.floor(Date.now() / 1000)}.jpeg`;
+        link.download = `woodthorpe-adt-pass-${Math.floor(Date.now() / 1000)}.jpeg`;
         link.href = dataUrl;
         link.click();
     });
